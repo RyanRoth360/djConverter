@@ -43,22 +43,14 @@ def send_enter_to_input_field(driver, selector):
     element.send_keys(Keys.ENTER)
 
 def click_button_and_go_back(driver, button_selector):
-    # Capture the original tab handle
     original_tab = driver.current_window_handle
-
-    # Click the button
     driver.find_element(By.CSS_SELECTOR, button_selector).click()
-
-    # Wait for a new window/tab to open
-    time.sleep(1)  # Adjust the sleep time as necessary
-
-    # Switch to the new tab (if opened) and close it
+    time.sleep(1)  
     for window_handle in driver.window_handles:
         if window_handle != original_tab:
             driver.switch_to.window(window_handle)
             driver.close()
     
-    # Switch back to the original tab
     driver.switch_to.window(original_tab)
 
 def download(driver, link):
@@ -74,17 +66,3 @@ def navigate(driver):
     driver.get('https://y2meta.mobi/en2/youtube-to-mp3/')
     time.sleep(1)
 
-# Example usage
-# if __name__ == "__main__":
-#     # Setup the Chrome WebDriver
-
-#     # Navigate to the website
-
-#     sel = "#keyword"
-#     # Use the set_input_field function to set text in an input field
-#     set_input_field(driver, sel, 'test')
-#     # Use the click_button function to click a button
-#     # click_button(driver, '#button-id')
-
-#     # Close the browser
-#     driver.quit()
