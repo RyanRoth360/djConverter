@@ -1,14 +1,14 @@
-import web
+import downloader
 import argparse
 
 def read_file_lines(file_path):
-    driver = web.create_driver()
+    driver = downloader.create_driver()
     try:
         with open(file_path, 'r') as file:
             lines = file.readlines()
         for line in lines:
             line = line.strip()
-            web.download(driver, line)
+            downloader.download(driver, line)
     except FileNotFoundError:
         print(f"The file at {file_path} was not found.")
         return []
