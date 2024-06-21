@@ -8,7 +8,7 @@ This program reads a text file containing YouTube links and downloads them as 32
 1. Clone the repository:
 
     ```sh
-    git clone https://github.com/your-username/your-repository.git
+    git clone https://github.com/RyanRoth360/djConverter.git
     ```
 
 2. Change to the project directory:
